@@ -92,4 +92,8 @@ public class PlayroomsManager implements Showable {
     public void setActivePlayroom(Playroom activePlayroom) {
         this.activePlayroom = activePlayroom;
     }
+
+    public List<Playroom> getListOfPlayrooms(){
+        return playrooms;
+    }
 }
