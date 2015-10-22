@@ -6,6 +6,7 @@
 /Users/marina/temp/playroom/week2project/src/main/java/models/toys/Blocks.java
 /Users/marina/temp/playroom/week2project/src/main/java/models/Playroom.java
 /Users/marina/temp/playroom/week2project/src/main/java/exceptions/NoPlayroomException.java
+/Users/marina/temp/playroom/week2project/src/main/java/data/strings/JSONParserClass.java
 /Users/marina/temp/playroom/week2project/src/main/java/factories/PlayroomFactory.java
 /Users/marina/temp/playroom/week2project/src/main/java/commandParsers/DestroyParser.java
 /Users/marina/temp/playroom/week2project/src/main/java/commandParsers/BuildParser.java

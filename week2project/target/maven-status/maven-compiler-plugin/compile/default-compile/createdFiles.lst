@@ -1,3 +1,4 @@
+data/strings/JSONParserClass.class
 interfaces/Showable.class
 data/strings/HelpStrings.class
 factories/ToyFactory.class
