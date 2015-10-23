@@ -1,0 +1,8 @@
+{
+   "types": [
+       "Blocks",
+       "Doll",
+       "Ball"
+   ],
+    "names" : "some names"
+}

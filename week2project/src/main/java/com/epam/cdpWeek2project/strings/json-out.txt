@@ -1,0 +1,26 @@
+{
+  "mega": {
+    "type": "blocks",
+    "action": "building a house, building a garage...",
+    "shape": "cubes",
+    "isBroken": false,
+    "isTaken": false,
+    "name": "Megablocks"
+  },
+  "lego": {
+    "type": "blocks",
+    "action": "building a house, building a garage...",
+    "shape": "cubes",
+    "isBroken": false,
+    "isTaken": false,
+    "name": "Lego"
+  },
+  "masha": {
+    "type": "Doll",
+    "action": "Agu, mama, agu...",
+    "shape": "human",
+    "isBroken": false,
+    "isTaken": false,
+    "name": "Masha"
+  }
+}

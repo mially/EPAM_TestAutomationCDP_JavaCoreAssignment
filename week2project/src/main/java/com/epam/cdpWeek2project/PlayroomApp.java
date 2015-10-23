@@ -1,6 +1,6 @@
 package com.epam.cdpWeek2project;
 
-import com.epam.cdpWeek2project.commandParsers.*;
+import com.epam.cdpWeek2project.strings.Commands;
 import com.epam.cdpWeek2project.strings.JSONParserClass;
 import com.epam.cdpWeek2project.managers.PlayersManager;
 import com.epam.cdpWeek2project.managers.PlayroomsManager;
@@ -46,43 +46,17 @@ public class PlayroomApp {
             String userInput = scanner.nextLine();
 
             if(!userInput.isEmpty()){
-                String[] userCommands = userInput.toLowerCase().split(" ");
+                String[] userCommands = userInput.toUpperCase().split(" ");
                 String userCommand = userCommands[0];
 
                 //saves command attributes to pass down the chain. Ok to be empty
                 String[] userCommandAttributes = Arrays.copyOfRange(userCommands, 1, userCommands.length);
 
                 //redirects complex commands to com.epam.cdpWeek2project.commandParsers
-                switch (userCommand) {
-                    case "help":
-                        System.out.println(HelpStrings.HELP);
-                        break;
-                    case "build":
-                        BuildParser.parse(userCommandAttributes, playroomsManager, playersManager, toysManager);
-                        break;
-                    case "show":
-                        ShowParser.parse(userCommandAttributes, playroomsManager, playersManager, toysManager);
-                        break;
-                    case "destroy":
-                        DestroyParser.parse(userCommandAttributes,playersManager);
-                        break;
-                    case "play":
-                        PlayParser.parse(userCommandAttributes, playersManager);
-                        break;
-                    case "switch":
-                        SwitchParser.parse(userCommandAttributes, playroomsManager, playersManager, toysManager);
-                        break;
-                    case "take":
-                        TakeParser.parse(userCommandAttributes, playersManager);
-                        break;
-                    case "return":
-                        ReturnParser.parse(userCommandAttributes, playersManager);
-                        break;
-                    case "exit":
-                        System.out.println(HelpStrings.GOODBYE);
-                        System.exit(0);
-                    default:
-                        System.out.println(HelpStrings.INVALID_COMMAND);
+                try {
+                    Commands.valueOf(userCommand).run(userCommandAttributes, playersManager, playroomsManager, toysManager);
+                } catch (Exception e) {
+                    System.out.println(HelpStrings.INVALID_COMMAND);
                 }
             } else {
                 System.out.println(HelpStrings.COMMAND_NEEDED);
