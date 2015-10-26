@@ -1,24 +1,30 @@
-package com.epam.cdpWeek2project.commandParsers;
-
+package com.epam.cdpWeek2project.commands;
 
 import com.epam.cdpWeek2project.exceptions.NoPlayroomException;
 import com.epam.cdpWeek2project.exceptions.NoUserException;
 import com.epam.cdpWeek2project.managers.PlayersManager;
 import com.epam.cdpWeek2project.managers.PlayroomsManager;
-import com.epam.cdpWeek2project.managers.ToysManager;
 
-public class SwitchParser {
-    public static void parse(String[] userCommands, PlayroomsManager playroomManager,
-        PlayersManager playersManager) {
+public class CommandSwitch implements Command {
+    private PlayersManager playersManager;
+    private PlayroomsManager playroomsManager;
+
+    public CommandSwitch(PlayersManager playersManager, PlayroomsManager playroomsManager){
+        this.playersManager = playersManager;
+        this.playroomsManager = playroomsManager;
+    }
+
+    @Override
+    public void run(String[] userInput) {
         String name;
 
         try {
-            String mainCommand = userCommands[0];
-            name = userCommands[1];
+            String mainCommand = userInput[0];
+            name = userInput[1];
 
             switch (mainCommand) {
                 case "playroom":
-                    playroomManager.switchTo(name);
+                    playroomsManager.switchTo(name);
                     break;
                 case "player":
                     playersManager.switchTo(name);
@@ -33,5 +39,10 @@ public class SwitchParser {
         } catch (NoPlayroomException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    @Override
+    public String getCommand() {
+        return "switch";
     }
 }
